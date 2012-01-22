@@ -1,6 +1,10 @@
-require "polemic/railtie"
-require "polemic/engine"
-require "polemic/active_record_extension"
+require 'ancestry'
+require "polemic/rails/railtie"
+require "polemic/rails/engine"
+require "polemic/rails/active_record_extension"
+require 'polemic/rails/action_view_extension'
+require "polemic/standart_renderer"
+require "polemic/commentable_methods"
 
 module Polemic
   
@@ -8,7 +12,7 @@ module Polemic
     yield @config ||= Polemic::Configuration.new
   end
 
-  # Global settings for BlahBlahBlah
+  # Global settings for Polemic
   def self.config
     @config
   end

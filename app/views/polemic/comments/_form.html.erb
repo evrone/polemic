@@ -1,0 +1,7 @@
+<%= form_for Comment.new do |f| %>
+  <%= f.hidden_field :commentable_id, :value => commentable.id %>
+  <%= f.hidden_field :commentable_type, :value => commentable.class %>
+  <p><%= f.label :body %></p>
+  <p><%= f.text_field :body %></p>
+  <p><%= f.submit %></p>
+<% end %>

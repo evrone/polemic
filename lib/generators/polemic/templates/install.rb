@@ -5,7 +5,7 @@ class InstallPolemic < ActiveRecord::Migration
       t.text :body
       t.references :user
       t.string :ancestry
-      t.boolean :deleted
+      t.boolean :deleted, :default => false
       
       t.timestamps
     end

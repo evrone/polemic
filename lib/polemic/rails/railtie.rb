@@ -16,6 +16,10 @@ module Polemic
       # app.config.middleware.insert_before "::Rails::Rack::Logger", "Inboxes::Middleware"
     end
     
+    initializer "polemic.action_view" do |app|
+      ActionView::Base.send :include, Polemic::ViewMethods
+    end
+    
     # def self.activate
     #   Ability.register_ability(InboxesAbility)
     # end

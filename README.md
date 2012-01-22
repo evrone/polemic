@@ -10,7 +10,7 @@ Polemic requires Rails 3.x and [Devise](https://github.com/plataformatec/devise)
 
 We recommend to use Polemic with [Faye](https://github.com/jcoglan/faye), because this combination it's really sexy.
 
-Remember that unfortunately, Polemic reserve `Comment` for resource name.
+Remember that unfortunately, Polemic reserves `Comment` for resource name.
 
 ##Installation
 
