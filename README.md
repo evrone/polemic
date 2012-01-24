@@ -8,7 +8,7 @@ Polemic is a young comments system for Rails app. It:
 
 Polemic requires Rails 3.x and [Devise](https://github.com/plataformatec/devise) for user identification (surely, messaging system is not possible without users). Now the gem is tested only with Ruby 1.8.7 and REE.
 
-We recommend to use Polemic with [Faye](https://github.com/jcoglan/faye), because this combination it's really sexy.
+We recommend to use Polemic with [Faye](https://github.com/faye/faye), because this combination it's really sexy.
 
 Remember that unfortunately, Polemic reserves `Comment` for resource name.
 
