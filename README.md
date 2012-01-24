@@ -4,7 +4,7 @@ Polemic is comments engine for Rails app. It:
 
 - provides has_polemic method to any model
 - use User model as commentator
-- provides `render_polemic_for @your_object` helper to display the object comments in views.
+- provides `polemic_for @your_object` helper to display the object comments in views.
 
 ##Requirements and recommendations
 
@@ -16,8 +16,9 @@ Remember that unfortunately, Polemic reserves `Comment` for resource name.
 
 1. Run `rails g polemic:install` and `rake db:migrate`
 2. Add `has_polemic` to your model, for example Post
-3. Add `<%= render_polemic_for @your_object %>` to the `show` template, for example: `<%= render_polemic_for @post %>` to `app/views/posts/show.html.erb` for Post resource.
-4. Well done!
+3. Add `<%= polemic_for @your_object %>` to the `show` template, for example: `<%= polemic_for @post %>` to `app/views/posts/show.html.erb` for Post resource.
+4. ???
+5. PROFIT!
 
 ##Themes and views
 
@@ -25,9 +26,9 @@ Polemic supports theming and usage of custom views. Firstly, you should copy def
 
 Then, you will have polemic views in `app/views/polemic/default`. Rename `default` directory to according model or controller name, for example `posts`. Don't forget to replace paths in `_comments.html.erb` view: `polemic/default/` => `polemic/posts/`
 
-Also, you should specify the theme as param for `render_polemic_for` helper on the commentable object page:
+Also, you should specify the theme as param for `polemic_for` helper in the commentable object views:
 
-`render_polemic_for(@post, :theme => "posts")`
+`polemic_for(@post, :theme => "posts")`
 
 ##Todo
 
