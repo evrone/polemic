@@ -1,0 +1,3 @@
+<h3>Comments: <%= commentable.total_comments %></h3>
+<%= render :partial => "polemic/default/comment", :collection => comments %>
+<%= render :partial => "polemic/default/form", :locals => { :commentable => commentable } %>

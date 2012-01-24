@@ -13,9 +13,10 @@ module Polemic
     # TODO implement logging
     # see https://github.com/amatsuda/kaminari/blob/master/lib/kaminari/helpers/paginator.rb#L76
     def render_comments(commentable, options = {})
-      # @template.render(:text => "Hello, Polemic! Size: #{comments.size}")
-      @template.render(:partial => "polemic/comments/plain", :locals => { :comments => commentable.comments.includes(:user), :commentable => commentable })
+      theme = options.delete(:theme) || "default"
+      @template.render(:partial => "polemic/#{theme}/comments", :locals => { :comments => commentable.comments.includes(:user), :commentable => commentable })
     end
+    
     # def render_crumbs(crumbs, options = {})
     #   options[:format] = :html if options[:format] == nil
     #   return '' if options[:skip_if_blank] && crumbs.count < 1
