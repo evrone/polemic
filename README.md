@@ -1,24 +1,39 @@
 #Polemic
 
-Polemic is a young comments system for Rails app. It:
+Polemic is comments engine for Rails app. It:
 
-- provides Comment model to developer
+- provides has_polemic method to any model
+- use User model as commentator
+- provides `render_polemic_for @your_object` helper to display the object comments in views.
 
 ##Requirements and recommendations
 
-Polemic requires Rails 3.x and [Devise](https://github.com/plataformatec/devise) for user identification (surely, messaging system is not possible without users). Now the gem is tested only with Ruby 1.8.7 and REE.
-
-We recommend to use Polemic with [Faye](https://github.com/faye/faye), because this combination it's really sexy.
+Polemic requires Rails 3.x and [Devise](https://github.com/plataformatec/devise) for user identification (surely, comments are not possible without users). This version of the gem is tested only with MRI 1.8.7, MRI 1.9.3, and REE.
 
 Remember that unfortunately, Polemic reserves `Comment` for resource name.
 
 ##Installation
 
-1. Run `rails g polemic:install`
+1. Run `rails g polemic:install` and `rake db:migrate`
+2. Add `has_polemic` to your model, for example Post
+3. Add `<%= render_polemic_for @your_object %>` to the `show` template, for example: `<%= render_polemic_for @post %>` to `app/views/posts/show.html.erb` for Post resource.
+4. Well done!
+
+##Themes and views
+
+Polemic supports theming and usage of custom views. Firstly, you should copy default views with generator: `rails generate polemic:views`
+
+Then, you will have polemic views in `app/views/polemic/default`. Rename `default` directory to according model or controller name, for example `posts`. Don't forget to replace paths in `_comments.html.erb` view: `polemic/default/` => `polemic/posts/`
+
+Also, you should specify the theme as param for `render_polemic_for` helper on the commentable object page:
+
+`render_polemic_for(@post, :theme => "posts")`
 
 ##Todo
 
 - Add RSpec tests
+- Add Faye support
+- Do not hardcode `User` model as a commentator
 
 ##Authors
 
