@@ -3,3 +3,4 @@ en:
     comment:
       removed: "Successfully removed the comment"
       added: "Successfully added the comment"
+      has_errors: "Error occured while saving the comment"

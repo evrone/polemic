@@ -8,6 +8,6 @@ class Comment < ActiveRecord::Base
   scope :actual, where(:deleted => false)
   
   def mark_as_deleted!
-    update_attributes({ :deleted => true })
+    update_attribute(:deleted, true)
   end
 end
