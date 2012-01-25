@@ -20,6 +20,13 @@ Remember that unfortunately, Polemic reserves `Comment` for resource name.
 4. ???
 5. PROFIT!
 
+In CanCan is enabled in your project, you will have to add some abilities for creating Comments, for example:
+```ruby
+can [:create, :read], Comment
+```
+If you have no CanCan, Polemic will not use `authorize_resource` in CommentsController.
+You can use hint from [Devise Wiki](https://github.com/plataformatec/devise/wiki/How-To:-Create-Haml-and-Slim-Views) to directly convert Polemic ERB views to HAML.
+
 ##Themes and views
 
 Polemic supports theming and usage of custom views. Firstly, you should copy default views with generator: `rails generate polemic:views`

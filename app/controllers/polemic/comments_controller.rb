@@ -1,5 +1,5 @@
 class Polemic::CommentsController < Polemic::BaseController
-  authorize_resource
+  authorize_resource if defined?(CanCan) == "constant"
   
   def create
     @comment = Comment.new(params[:comment])
@@ -33,6 +33,6 @@ class Polemic::CommentsController < Polemic::BaseController
       @comment.destroy # if no children, destroy it!
     end
 
-    redirect_to @comment.commentable, :notice => I18n.t("polemic.comment.removed")
+    redirect_to :back, :notice => I18n.t("polemic.comment.removed")
   end
 end
