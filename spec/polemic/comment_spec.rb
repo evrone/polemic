@@ -11,4 +11,13 @@ describe Comment do
     comment.mark_as_deleted!
     comment.deleted.should be_true
   end
+  
+  it "actual comments should not include deleted comments" do
+    2.times do
+      Factory(:comment)
+    end
+    deleted_comment = Factory(:comment)
+    deleted_comment.mark_as_deleted!
+    Comment.actual.should_not include deleted_comment 
+  end
 end
