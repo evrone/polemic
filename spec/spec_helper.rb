@@ -4,6 +4,7 @@ require 'rails'
 require 'active_record'
 require 'polemic'
 require 'rspec/rails'
+require 'factory_girl'
 # require 'database_cleaner'
 # Ensure we use 'syck' instead of 'psych' in 1.9.2
 # RubyGems >= 1.5.0 uses 'psych' on 1.9.2, but

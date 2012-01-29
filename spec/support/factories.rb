@@ -1,23 +1,22 @@
-# FactoryGirl.define do
-#   
-#   factory :user do
-#     email {Factory.next(:email)}
-#     first_name 'user'
-#     last_name 'usered'
-#     username {Factory.next(:login)}
-#     password "foobar"
-#     password_confirmation { |u| u.password }
-#     role 2
-#   end
-# 
-#   factory :discussion do
-#     recipient_ids {[Factory(:user).id, Factory(:user).id]}
-#   end
-# 
-#   factory :message do
-#     association :user
-#     association :discussion
-#     # user {Factory(:user)}
-#     # discussion {Factory(:discussion)}
-#   end
-# end
+FactoryGirl.define do
+  
+  factory :comment do
+    commentable { Factory(:post) }
+    user { Factory(:user) }
+    body 'comment body'
+  end
+  
+  factory :post do
+    user { Factory(:user) }
+    title 'post title'
+    body 'post body'
+  end
+  
+  factory :user do |n|
+    name "Test User"
+    email { Factory.next(:email) }
+    password "password"
+    password_confirmation "password"
+  end
+  
+end

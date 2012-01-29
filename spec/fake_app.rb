@@ -30,8 +30,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
-  validates :name, :presence => true, :uniqueness => true
-  # has_inboxes
+  validates :name, :presence => true
+end
+
+class Post < ActiveRecord::Base
+  validates :title, :user, :body, :presence => true
+  has_polemic
+  belongs_to :user
 end
 
 # routes
@@ -66,6 +71,14 @@ ActiveRecord::Base.silence do
       t.integer  "user_id"
       t.string   "ancestry"
       t.boolean  "deleted",          :default => false
+      t.datetime "created_at",                          :null => false
+      t.datetime "updated_at",                          :null => false
+    end
+    
+    create_table "posts", :force => true do |t|
+      t.string   "title"
+      t.text     "body"
+      t.integer  "user_id"
       t.datetime "created_at",                          :null => false
       t.datetime "updated_at",                          :null => false
     end
