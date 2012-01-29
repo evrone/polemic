@@ -1,5 +1,7 @@
 #Polemic
 
+[![Build Status](https://secure.travis-ci.org/evrone/polemic.png)](http://travis-ci.org/evrone/polemic)
+
 Polemic is comments engine for Rails app. It:
 
 - provides has_polemic method to any model
