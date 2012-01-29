@@ -13,7 +13,7 @@ require 'devise'
 require 'devise/orm/active_record'
 
 # database
-ActiveRecord::Base.configurations = {'test' => {:adapter => 'sqlite3', :database => ':memory:'}}
+ActiveRecord::Base.configurations = {'test' => {:adapter => 'postgresql', :database => 'polemic_test', :username => "postgres"}}
 ActiveRecord::Base.establish_connection('test')
 
 require 'devise_config'
