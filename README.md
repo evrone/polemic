@@ -1,3 +1,4 @@
+# PLEASE NOTE, THIS PROJECT IS NO LONGER BEING MAINTAINED
 # Polemic
 
 [![Build Status](https://secure.travis-ci.org/evrone/polemic.png)](http://travis-ci.org/evrone/polemic)
